@@ -7,15 +7,11 @@ CONFIG(x64){
 TARGET = $$TARGET"64"
 }
 DEPENDPATH += .
-INCLUDEPATH += .  ./include \
-			   ../../utilities/include \
-			   ../../soui/include \
-			   ../../components \
-			   ../../third-part \
 
-			   
-dir = ../..
-include($$dir/common.pri)
+include($$(SOUIPATH)/demo_com.pri)
+
+INCLUDEPATH += ./include \
+	                  $(SOUIPATH)/third-part
 
 CONFIG(debug,debug|release){
 	LIBS += utilitiesd.lib souid.lib sqlite3d.lib
